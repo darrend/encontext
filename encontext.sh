@@ -1,6 +1,10 @@
 #!/bin/bash
 
 encontext () {
+  if [ "$#" -ne 1 ]; then
+    ls -l ~/.encontext/contexts
+    return
+  fi
   context=${1//[^a-zA-Z0-9]/} # http://stackoverflow.com/questions/89609/in-a-bash-script-how-do-i-sanitize-user-input
   context_path=~/.encontext/contexts/$context
 

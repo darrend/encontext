@@ -12,15 +12,13 @@ encontext () {
     ln -s $(pwd -P) $context_path
     (>&2 echo "creating new context ${context}") # http://stackoverflow.com/questions/2990414/echo-that-outputs-to-stderr
   fi
-  export ENCNX_NAME=$context
-  export ENCNX_PATH=$(pwd -P)
+  export ENCONTEXT_NAME=$context
+  export ENCONTEXT_PATH=$(pwd -P)
 }
 
 
 # edit in context
-alias e='mvim --servername $ENCNX_NAME --remote-silent'
+alias e='mvim --servername $ENCONTEXT_NAME --remote-silent'
 # cd in context
-alias c='cd $ENCNX_PATH'
-alias w='echo $ENCNX_PATH'
-alias n='echo $ENCNX_NAME'
-alias x='echo $ENCNX_NAME $ENCNX_PATH'
+alias c='cd $ENCONTEXT_PATH'
+alias x='echo ENCONTEXT_NAME=$ENCONTEXT_NAME ENCONTEXT_PATH=$ENCONTEXT_PATH'

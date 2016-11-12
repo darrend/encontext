@@ -2,13 +2,13 @@
 
 encontext () {
   context=${1//[^a-zA-Z0-9]/} # http://stackoverflow.com/questions/89609/in-a-bash-script-how-do-i-sanitize-user-input
-  context_path=~/.encontext/$context
+  context_path=~/.encontext/contexts/$context
 
   if [ -d $context_path ]
   then
     cd -P $context_path
   else
-    mkdir -p ~/.encontext
+    mkdir -p ~/.encontext/contexts
     ln -s $(pwd -P) $context_path
     (>&2 echo "creating new context ${context}") # http://stackoverflow.com/questions/2990414/echo-that-outputs-to-stderr
   fi
